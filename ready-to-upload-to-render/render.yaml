@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: stt-transcription-studio
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt && cd frontend && npm install && npm run build
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: SUPABASE_URL
+        value: https://tpmvuvsalhluqfdyaeha.supabase.co
+      - key: SUPABASE_KEY
+        value: sb_publishable_KBwBB9vRdOwMOHQyPhMreA_VtnWDNIK

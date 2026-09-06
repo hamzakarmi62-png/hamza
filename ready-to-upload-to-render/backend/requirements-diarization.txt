@@ -1,0 +1,2 @@
+torch>=2.2
+pyannote.audio>=3.1
