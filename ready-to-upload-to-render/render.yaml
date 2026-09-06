@@ -4,7 +4,7 @@ services:
     env: python
     region: frankfurt
     plan: free
-    buildCommand: pip install -r backend/requirements.txt && cd frontend && npm install && npm run build
+    buildCommand: pip install -r backend/requirements.txt && npm install --prefix frontend && npm run build --prefix frontend
     startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION

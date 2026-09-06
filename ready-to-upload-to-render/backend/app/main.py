@@ -38,8 +38,10 @@ def health():
 
 # Serve Frontend Static Files
 dist_path = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../../../frontend/dist")
+    os.path.join(os.path.dirname(__file__), "../../frontend/dist")
 )
+if not os.path.exists(dist_path):
+    dist_path = os.path.abspath("../frontend/dist")
 if not os.path.exists(dist_path):
     dist_path = os.path.abspath("frontend/dist")
 
